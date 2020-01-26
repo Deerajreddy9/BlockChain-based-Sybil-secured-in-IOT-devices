@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Transactions</title>
+	<style type="text/css">
+		.banner{
+			text-align: center;
+			margin-top: 50px;
+			background: white;
+			margin-bottom: 50px;
+		}
+		input[type=text], input[type=number], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		input[type=submit] {
+			width: 20%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			margin-left: 40%;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+  			background-color: #45a049;
+		}
+		.topb{
+			    background: black;
+			    font: white;
+			    color: white;
+			    text-align: center;
+			}
+		.trans {
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 20px;
+			margin-left: 23.2%;
+			width: 50%;/*100%*/
+			height: 300px;
+		}
+		button{
+			width: 20%;
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    /* margin: 20px 0; */
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    transform: translateY(65%);
+		}
+		button:hover {
+  			background-color: #45a049;
+		}
+		.btn{
+			border-radius: 5px;
+		    background-color: #f2f2f2;
+		    padding-left: 20px;
+		    margin-left: 23.2%;
+		    width: 50%;
+		    height: 100px;
+		    padding-right: 20px
+		}
+		#inva{
+			float: right;
+		    height: 45px;
+		    transform: translateY(-116%);
+		    padding: 0px;
+		    background-color: #ffc738;
+		    color: black;
+		    font-weight: bold;
+		}
+		#inva:hover {
+  			background-color: #ff2134;
+		}
+	</style>
+	<script type="text/javascript">
+		var N = '{{l}}'
+		var err = '{{v}}'
+		
+	function validate() {
+		var S, R, Msg;
+		S = document.getElementById('Sender').value;
+		R = document.getElementById('Receiver').value;
+		Msg = document.getElementById('Msg').value;
+		if(S>N-1 || S < 0 ){
+			alert("Sender is not in BlockChain Network\n Possible Sybil Threat");  
+			return false;
+		}
+		else if(R> N-1 || R< 0){
+			// alert("Receiver is not in BlockChain Network\n Possible Sybil Threat");  
+			return false;	
+		}
+		else if(S == "" || R == ""|| Msg == ""){
+			alert("Enter all fields")
+			return false;
+		}			
+		return true;
+	}
+	if (err!== "") {
+			alert(err)
+		}
+</script>
+</head>
+<body>
+	<div class="topb">
+		<h5>SFFS IOT FRAMEWORK SIMULATOR</h5>
+	</div>
+	<div class="banner">
+		<h1>Data Transactions</h1>
+	</div>
+	<div style="text-align: center;  margin-bottom:  10px;" class="btn">
+		<button onclick="window.open ('http://127.0.0.1:5000/bloc', '_blank')" style="float: left;" ;>Block Details</button>
+		<button onclick="window.open ('http://127.0.0.1:5000/alltxns','_blank')";>Valid Transactions</button>
+		<button onclick="window.location.href = '/'" style="float: right;" disabled ;>Add New Device</button>
+	</div>
+	<div class="trans">
+		<form action="http://127.0.0.1:5000/res" method="POST">
+		<label for="sender">Sender Id</label>
+		<input type="number" name="sender" id="Sender" placeholder="Enter Sender Id">
+		<br>
+		<label for="receiver">Receiver Id</label>
+		<input type="number"  name="receiver" id="Receiver" placeholder="Enter Receiver Id">
+		<br>
+		<label for="amount">Message</label>
+		<input type="text" name="amount" id="Msg" placeholder="Enter Message">  
+		<input type="submit" value="Submit">
+		
+		</form>
+		<button onclick="window.open ('http://127.0.0.1:5000/invalid','_blank')" id="inva">Invalid Transactions</button>
+	</div>
+</body>
+</html>

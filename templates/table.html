@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wallet Details</title>
+	<style>
+			table {
+				border-collapse: collapse;
+			}
+			table, td, th {
+		  		border: 1px solid black;
+		  		background: #f2f2f2;
+			}
+			td{
+				height: 90px;
+			    text-align: center;
+	    		padding: 0px 10px
+			}
+			h1,h4,h5{
+					display: table;
+					table-layout: fixed;
+					word-wrap: break-word;
+					width: 100%;
+			}
+			h3{
+				display: table;
+					table-layout: fixed;
+					word-wrap: break-word;
+					width: 200px;
+			}
+			.banner{
+				text-align: center;
+				margin-top: 50px;
+				background: white;
+				margin-bottom: 50px;
+			}
+			button
+			{
+				width: 10%;
+  				background-color: #4CAF50;
+  				color: white;
+  				padding: 14px 20px;
+  				border: none;
+  				border-radius: 4px;
+  				cursor: pointer;
+				font-size: 20px;
+			}
+			button:hover {
+  				background-color: #45a049;
+			}
+			.topb{
+			    background: black;
+			    font: white;
+			    color: white;
+			    text-align: center;
+			}
+	</style>
+</head>
+<body>
+	<div class="topb">
+		<h5>SFFS IOT FRAMEWORK SIMULATOR</h5>
+	</div>
+	<div class="banner">
+		<h1>Wallet Details</h1> 
+	</div>
+<table border="1" align="center" style="width: 80%">
+	<thead>
+
+		<th>WalletId</th>
+		<th>PublicKey</th>
+		<!--<th>PrivateKey</th>-->
+	</thead>
+	<tbody>
+        {%for D in j%}
+		<tr>
+			<td ><h3>{{D.id}}</h1></td>
+			<td><h4>{{D.pk.hex()}}</h4></td>
+			
+		</tr>
+		{%endfor%}
+
+	</tbody>
+</table>
+<div style="text-align: center;  margin-top: 10px;">
+	<button onclick="window.location.href = '/transaction'";>Identity Set Generation</button>
+</div>
+</body>
+</html>

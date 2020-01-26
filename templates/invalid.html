@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Invalid Transactions</title>
+	<style type="text/css">
+		.banner{
+			text-align: center;
+			margin-top: 50px;
+			background: white;
+			margin-bottom: 50px;
+		}
+		.topb{
+		    background: black;
+		    font: white;
+		    color: white;
+		    text-align: center;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		table, td, th {
+	  		border: 1px solid black;
+	  		background: #f2f2f2;
+	  	}
+	  	td{
+			height: 45px;
+		    text-align: center;
+    		padding: 0px 10px
+		}
+		.wid{
+			width: 80px;
+		}
+	</style>
+</head>
+<body>
+	<div class="topb">
+		<h5>SFFS IOT FRAMEWORK SIMULATOR</h5>
+	</div>
+	<div class="banner" >
+		<h1>Invalid Transactions</h1> 
+	</div>
+	<table align="center">
+		<thead>
+			<tr>
+				<th>Sender Address</th>
+				<th>Receiver Address</th>
+				<th class="wid">Amount / Message</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for D  in i%}
+				<tr>
+					<td>{{D['Sender'].address}}</td>
+					<td>{{D['Receiver'].address}}</td>
+					<td>{{D['Amount']}}</td>
+					<td>{{D['status']}}</td>
+				</tr>
+			{%endfor%}	
+			{%for D  in o%}
+				<tr>
+					<td>{{D['Sender']}}</td>
+					<td>{{D['Receiver']}}</td>
+					<td>{{D['Amount']}}</td>
+					<td>{{D['status']}}</td>
+				</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+
+</body>
+</html>
